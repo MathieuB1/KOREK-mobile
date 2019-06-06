@@ -6,7 +6,7 @@ import RegisterScreen from "../screens/RegisterScreen";
 
 class RegisterContainer extends React.Component {
     componentDidUpdate() {
-        if (this.props.authInfo.newuser.id) {
+        if (this.props.authInfo.newuser && this.props.authInfo.newuser.id) {
             this.props.navigation.navigate("Auth");
         }
     }
