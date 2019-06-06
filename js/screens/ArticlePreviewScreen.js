@@ -89,7 +89,7 @@ export default class ArticlePreviewScreen extends React.Component {
                                                                 headers: { Authorization: 'Bearer ' + this.props.commonInfo.token }}}/></View>) : null }
                         </View>
 
-                        <View style={{ marginBottom: 30 }}>
+                        <View style={{ marginBottom: 20 }}>
                             <Button title='Update Article' onPress={() => this.props.update(this.props.article.id)} />
                         </View>
                         <Button color="red" title='Delete Article' onPress={() => this.props.deleteArticle(this.props.article.id)} />

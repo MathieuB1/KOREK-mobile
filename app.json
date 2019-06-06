@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "korek",
-    "description": "korek mobile\n\nkorek backend\nhttps://github.com/MathieuB1/KOREK-backend",
+    "description": "korek mobile\nhttps://github.com/MathieuB1/KOREK-mobile\n\nkorek backend\nhttps://github.com/MathieuB1/KOREK-backend",
     "slug": "korek",
     "privacy": "public",
     "sdkVersion": "31.0.0",

@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
 import HomeScreen from "../screens/HomeScreen";
-import { Button, Image, View, StyleSheet } from 'react-native';
-
-import {
-    AsyncStorage,
-} from 'react-native';
+import { Button, Image, View, StyleSheet, AsyncStorage } from 'react-native';
 
 class HomeContainer extends React.Component {
 
