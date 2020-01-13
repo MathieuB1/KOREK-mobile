@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Platform, Button, View,  ScrollView,
   StyleSheet, Text, FlatList, ActivityIndicator, TouchableOpacity, TextInput } from 'react-native';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons';
 
 import ListErrors from '../components/ListErrors';
 
@@ -96,7 +96,8 @@ export default class HomeScreen extends Component {
                                                           headers: { Authorization: 'Bearer ' + this.props.commonInfo.token }}}/> : null }
                   </View>
                   <View style={{ marginTop: 5 }}>
-                    <HTML  html={item.text.replace(/(\r\n|\n|\r)/gm," ").substr(0, 200)} />
+                  { item.text ?
+                    <HTML  html={item.text.replace(/(\r\n|\n|\r)/gm," ").substr(0, 200)} /> : null }
                   </View>
 
                   <View style={styles.TagContainer}>

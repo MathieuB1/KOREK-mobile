@@ -21,7 +21,7 @@ export default class LoginScreen extends Component {
         {this.props.errors ?
         <ListErrors errors={this.props.errors}/> : null
         }
-        
+
         <View style={{ alignItems: 'center', backgroundColor: 'white'}}>
           <TextInput
             style={{ height: 40 }}
@@ -38,6 +38,7 @@ export default class LoginScreen extends Component {
 
         <View>
           <Button
+            color="gray"
             onPress={() => this.props.login(this.state.username, this.state.password)}
             title="Click here to login"
           />

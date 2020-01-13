@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TextInput, Button, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { ImagePicker } from 'expo';
+import * as ImagePicker from 'expo-image-picker';
 
 import ListErrors from '../components/ListErrors';
 

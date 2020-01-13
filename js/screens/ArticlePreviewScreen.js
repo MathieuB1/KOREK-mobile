@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Button, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons';
 
 import HTML from 'react-native-render-html';
 
@@ -71,7 +71,8 @@ export default class ArticlePreviewScreen extends React.Component {
                         </View>
 
                         <View style={{ borderRadius: 5, backgroundColor: 'white', margin: 5, padding: 5}}>
-                            <HTML html={this.props.article.text} />
+                        { item.text ?
+                            <HTML html={this.props.article.text} /> : null }
                         </View>
 
                         <View style={styles.TagContainer}>

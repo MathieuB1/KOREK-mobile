@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Button, Image, View, ScrollView, StyleSheet, TextInput, Text } from 'react-native';
-import { ImagePicker } from 'expo';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
 
 import ListErrors from '../components/ListErrors';
 import TagsList from '../components/TagsList';

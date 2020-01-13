@@ -1,20 +1,19 @@
  import * as types from "./types";
  import * as variables from "./constant";
 
- import {
-     AsyncStorage,
- } from 'react-native';
+ import { AsyncStorage } from 'react-native';
 
  export function getCsrfToken() {
 
      function getCsrfCookie(text) {
          var cookieValue = null;
-         var csrf_token = text.match(/name="csrfmiddlewaretoken" value="(.*)"/);
-         if (csrf_token.length === 2) {
-             cookieValue = csrf_token[1];
-         }
-         AsyncStorage.setItem('csrf', cookieValue);
-         return cookieValue;
+         console.log(text);
+          var csrf_token = text.match(/name="csrfmiddlewaretoken" value="(.*)"/);
+          if (csrf_token.length === 2) {
+              cookieValue = csrf_token[1];
+          }
+          AsyncStorage.setItem('csrf', cookieValue);
+          return cookieValue;
      }
 
      return async(dispatch, getState) => {
