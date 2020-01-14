@@ -71,7 +71,7 @@ export default class ArticlePreviewScreen extends React.Component {
                         </View>
 
                         <View style={{ borderRadius: 5, backgroundColor: 'white', margin: 5, padding: 5}}>
-                        { item.text ?
+                        { this.props.article.text ?
                             <HTML html={this.props.article.text} /> : null }
                         </View>
 
