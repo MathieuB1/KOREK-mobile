@@ -15,6 +15,9 @@
              }
              AsyncStorage.setItem('csrf', cookieValue);
          }
+         else {
+             console.log("Website cannot be reached!");
+         }
          return cookieValue;
      }
 

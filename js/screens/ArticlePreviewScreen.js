@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Button, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { Video } from 'expo-av';
 import * as Icon from '@expo/vector-icons';
 
 import HTML from 'react-native-render-html';
@@ -22,6 +23,7 @@ export default class ArticlePreviewScreen extends React.Component {
             username: '',
             email: '',
             disable: false,
+            shouldPlay: false,
         };
     }
 
@@ -33,7 +35,11 @@ export default class ArticlePreviewScreen extends React.Component {
         }
     }
 
-
+    handlePlayAndPause = () => {  
+        this.setState((prevState) => ({
+        shouldPlay: !prevState.shouldPlay
+        }));
+    }
 
     render() {
         /* Go ahead and delete ExpoConfigView and replace it with your
@@ -88,6 +94,26 @@ export default class ArticlePreviewScreen extends React.Component {
                                 <View key={`image_` + el.image} ><Image style={{ width: 355, height: 355}} 
                                                                 source={{ uri: el.image, 
                                                                 headers: { Authorization: 'Bearer ' + this.props.commonInfo.token }}}/></View>) : null }
+                        </View>
+
+                        <View style={styles.imageContainer}>
+                        { (this.props.article.videos[0]) ?
+                            this.props.article.videos.map(el => 
+                                <View key={`item_` + el.video} style={{ alignItems: 'center', justifyContent: 'center' }}><View key={`video_` + el.video} >
+                                     <Video source={{ uri: el.video + "?token=" + this.props.commonInfo.token }}
+                                            rate={1.0}
+                                            volume={1.0}
+                                            isMuted={false}
+                                            resizeMode="cover"
+                                            shouldPlay={this.state.shouldPlay}
+                                            style={{ width: 355, height: 355 }}
+                                            /></View>                    
+                                            <Icon.Ionicons 
+                                            name={this.state.shouldPlay ? 'md-pause' : 'md-play'}  
+                                            size={25}
+                                            color="white" 
+                                            onPress={this.handlePlayAndPause} />
+                                            </View>) : null }
                         </View>
 
                         <View style={{ marginBottom: 20 }}>

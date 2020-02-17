@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Platform, Button, View,  ScrollView,
   StyleSheet, Text, FlatList, ActivityIndicator, TouchableOpacity, TextInput } from 'react-native';
+import { Video } from 'expo-av';
 import * as Icon from '@expo/vector-icons';
 
 import ListErrors from '../components/ListErrors';
@@ -90,7 +91,16 @@ export default class HomeScreen extends Component {
                 <TouchableOpacity onPress={() => this.getArticlePreview(item)}>
                   <View style={styles.imageContainer}>
                   <Text style={{ fontSize: 20 }} >{item.title}</Text>
-                  { (item.images[0]) ?
+                  { (item.videos[0]) ?
+                    <Video source={{ uri: item.videos[0].video + "?token=" + this.props.commonInfo.token }}
+                      rate={1.0}
+                      volume={1.0}
+                      isMuted={false}
+                      resizeMode="cover"
+                      style={{ width: 355, height: 300 }}
+                    />: null }
+
+                  { (item.images[0] && !item.videos[0]) ?
                     <Image style={{width: 355, height: 300, borderRadius: 2 }} 
                                                 source={{ uri: item.images[0].image, 
                                                           headers: { Authorization: 'Bearer ' + this.props.commonInfo.token }}}/> : null }
