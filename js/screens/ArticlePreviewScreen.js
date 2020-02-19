@@ -23,7 +23,7 @@ export default class ArticlePreviewScreen extends React.Component {
             username: '',
             email: '',
             disable: false,
-            shouldPlay: false,
+            shouldPlay: new Array(this.props.article.videos.length).fill(false),
         };
     }
 
@@ -35,9 +35,19 @@ export default class ArticlePreviewScreen extends React.Component {
         }
     }
 
-    handlePlayAndPause = () => {  
+    updateList = (idx, prevState) => {
+        var array = new Array(this.props.article.videos.length).fill(false);
+        array[idx] = !prevState.shouldPlay[idx];
+        console.log("toto");
+        console.log(idx);
+        console.log(array);
+        return array
+    }
+
+    handlePlayAndPause = (idx) => {  
+        console.log(idx);
         this.setState((prevState) => ({
-        shouldPlay: !prevState.shouldPlay
+        shouldPlay: this.updateList(idx, prevState)
         }));
     }
 
@@ -98,21 +108,21 @@ export default class ArticlePreviewScreen extends React.Component {
 
                         <View style={styles.imageContainer}>
                         { (this.props.article.videos[0]) ?
-                            this.props.article.videos.map(el => 
+                            this.props.article.videos.map((el, idx) => 
                                 <View key={`item_` + el.video} style={{ alignItems: 'center', justifyContent: 'center' }}><View key={`video_` + el.video} >
                                      <Video source={{ uri: el.video + "?token=" + this.props.commonInfo.token }}
                                             rate={1.0}
                                             volume={1.0}
                                             isMuted={false}
                                             resizeMode="cover"
-                                            shouldPlay={this.state.shouldPlay}
+                                            shouldPlay={this.state.shouldPlay[idx]}
                                             style={{ width: 355, height: 355 }}
                                             /></View>                    
-                                            <Icon.Ionicons 
-                                            name={this.state.shouldPlay ? 'md-pause' : 'md-play'}  
+                                            <Icon.Ionicons key={`button_` + el.video}
+                                            name={this.state.shouldPlay[idx] ? 'md-pause' : 'md-play'}  
                                             size={25}
                                             color="white" 
-                                            onPress={this.handlePlayAndPause} />
+                                            onPress={() => this.handlePlayAndPause(idx)}/>
                                             </View>) : null }
                         </View>
 
