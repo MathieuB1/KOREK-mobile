@@ -31,7 +31,7 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
 
              if (result.results) {
                  dispatch(
-                     getUserProduct({
+                     getUserProducts({
                          articles: result.results,
                          count: result.count,
                          next: result.next,
@@ -40,7 +40,7 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
                      })
                  );
              } else {
-                dispatch(getUserProduct({error: result}));
+                dispatch(getUserProducts({error: result}));
              }
 
          } catch (error) {
@@ -51,7 +51,8 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
  }
 
 
- export function getUserProduct({
+
+ export function getUserProducts({
      articles,
      count,
      next,

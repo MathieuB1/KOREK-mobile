@@ -7,7 +7,7 @@
 
      function getCsrfCookie(text) {
          var cookieValue = null;
-         console.log(text);
+         //console.log(text);
          if (text !== undefined) {
              var csrf_token = text.match(/name="csrfmiddlewaretoken" value="(.*)"/);
              if (csrf_token !== null && csrf_token.length === 2) {

@@ -10,6 +10,8 @@ import ListErrors from '../components/ListErrors';
 import * as Progress from 'react-native-progress';
 import * as mime from 'react-native-mime-types';
 
+import MapScreen from "./MapScreen";
+
 export default class ArticlePreviewScreen extends React.Component {
 
     constructor(props) {
@@ -38,14 +40,10 @@ export default class ArticlePreviewScreen extends React.Component {
     updateList = (idx, prevState) => {
         var array = new Array(this.props.article.videos.length).fill(false);
         array[idx] = !prevState.shouldPlay[idx];
-        console.log("toto");
-        console.log(idx);
-        console.log(array);
         return array
     }
 
     handlePlayAndPause = (idx) => {  
-        console.log(idx);
         this.setState((prevState) => ({
         shouldPlay: this.updateList(idx, prevState)
         }));
@@ -126,6 +124,15 @@ export default class ArticlePreviewScreen extends React.Component {
                                             </View>) : null }
                         </View>
 
+                        <View>
+                            {(this.props.article.locations[0]) ?
+                                React.createElement(MapScreen, {
+                                    locations: this.props.article.locations,
+                                    title: this.props.article.title,
+                                    id: this.props.article.id,
+                                }) : null }
+                        </View>
+
                         <View style={{ marginBottom: 20 }}>
                             <Button title='Update Article' onPress={() => this.props.update(this.props.article.id)} />
                         </View>
@@ -144,7 +151,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 5
   },
   TagsContainer: {
         justifyContent: 'center',
