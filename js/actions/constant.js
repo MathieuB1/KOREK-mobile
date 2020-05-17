@@ -1,1 +1,1 @@
-export const BACKEND_SERVER = 'https://korek.ml';
+export const BACKEND_SERVER = 'https://korekk.ml';
