@@ -85,7 +85,7 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
                     },
                     onUploadProgress: ({ total, loaded }) => {
                         if (total !== null) {
-                            progressData = Math.round(loaded / total);
+                            var progressData = Math.round(loaded / total);
                             dispatch( SendingPostProgress({ percent: progressData }) );
                         }
                     }
@@ -219,7 +219,7 @@ export function deleteProduct({
                     },
                     onUploadProgress: ({ total, loaded }) => {
                         if (total !== null) {
-                            progressData = Math.round(loaded / total);
+                            var progressData = Math.round(loaded / total);
                             dispatch( SendingPostProgress({ percent: progressData }) );
                         }
                     }

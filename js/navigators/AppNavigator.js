@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeContainer from "../containers/HomeContainer";
 import EditorContainer from "../containers/EditorContainer";
 import SettingContainer from "../containers/SettingContainer";

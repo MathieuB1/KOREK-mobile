@@ -109,7 +109,7 @@ export function getUserProfile(username) {
                     },
                     onUploadProgress: ({ total, loaded }) => {
                         if (total !== null) {
-                            progressData = Math.round(loaded / total);
+                            var progressData = Math.round(loaded / total);
                             dispatch( SendingUpdateProgress({ percent: progressData }) );
                         }
                     }

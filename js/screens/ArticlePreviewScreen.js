@@ -7,7 +7,6 @@ import HTML from 'react-native-render-html';
 
 import ListErrors from '../components/ListErrors';
 
-import * as Progress from 'react-native-progress';
 import * as mime from 'react-native-mime-types';
 
 import MapScreen from "./MapScreen";

@@ -6,7 +6,6 @@ import * as ImagePicker from 'expo-image-picker';
 import ListErrors from '../components/ListErrors';
 import TagsList from '../components/TagsList';
 
-import * as Progress from 'react-native-progress';
 import * as mime from 'react-native-mime-types';
 
 export default class EditorScreen extends Component {
@@ -227,7 +226,6 @@ export default class EditorScreen extends Component {
                 </View>
 
                 <Button
-                
                   style={{ marginTop: 5, marginBottom: 5 }}
                   onPress={this._CreateArticle}
                   title={this.props.update ? "Update Article" : "Create Article"}
@@ -235,7 +233,7 @@ export default class EditorScreen extends Component {
                   disabled={this.state.disabled} />
                 
                 { this.props.percent && this.props.percent !== 0 ?
-                <Progress.Bar progress={this.props.percent} width={null} /> : null
+null:null
                 }
 
             </View>
