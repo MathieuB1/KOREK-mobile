@@ -19,6 +19,10 @@ export class MapScreen extends Component {
       return parseFloat(location[location.length-1].coords.split(' ')[1].replace('(',''))
     }
 
+    parse_time(location) {
+      return location[location.length-1].created.replace('T', ' ').split('.')[0]
+    }
+
   constructor(props) {
     super(props);
     this._isMounted = false;
@@ -27,7 +31,7 @@ export class MapScreen extends Component {
     this.state = {
       latitude: this.parse_lat(this.props.locations),
       longitude: this.parse_lon(this.props.locations),
-
+      last_time_updated: this.parse_time(this.props.locations),
       mylocation: null,
       errorMessage: null,
       intervalId: null
@@ -54,7 +58,8 @@ export class MapScreen extends Component {
         if (prevProps.trackedInfo && prevProps.trackedInfo != this.props.trackedInfo) {
           const item_track_location = this.props.trackedInfo.tracked_article;
           this.setState({ latitude: this.parse_lat(item_track_location.locations), 
-                          longitude: this.parse_lon(item_track_location.locations) });
+                          longitude: this.parse_lon(item_track_location.locations),
+                          last_time_updated: this.parse_time(item_track_location.locations) });
         }
   }
 
@@ -91,7 +96,7 @@ export class MapScreen extends Component {
       <View>
 
       <View style={styles.container}>
-
+        <Text>{this.state.last_time_updated}</Text>
       </View>
 
       <View style={styles.container}>

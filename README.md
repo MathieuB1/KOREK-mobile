@@ -2,7 +2,7 @@
 React Native + Expo + Redux + React Navigation boilerplate
 
 ## How to make it work
-1. Make sure you have [Node.js](https://nodejs.org/en/download/) installed https://nodejs.org/dist/v12.9.0/node-v12.9.0-x64.msi
+1. Make sure you have [Node.js](https://nodejs.org/en/download/) installed https://nodejs.org/dist/v14.0.0/node-v14.0.0-x64.msi
 2. Install expo-cli using `npm i -g expo-cli`
 3. Download or clone this repository
 4. Run `npm install` in project folder

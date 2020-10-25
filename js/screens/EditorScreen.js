@@ -8,6 +8,8 @@ import TagsList from '../components/TagsList';
 
 import * as mime from 'react-native-mime-types';
 
+import * as Progress from 'react-native-progress';
+
 export default class EditorScreen extends Component {
 
     constructor(props) {
@@ -233,7 +235,7 @@ export default class EditorScreen extends Component {
                   disabled={this.state.disabled} />
                 
                 { this.props.percent && this.props.percent !== 0 ?
-null:null
+                  <Progress.Bar progress={this.props.percent} width={null} /> : null
                 }
 
             </View>

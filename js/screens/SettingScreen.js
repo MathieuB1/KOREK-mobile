@@ -4,6 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 import ListErrors from '../components/ListErrors';
 
+import * as Progress from 'react-native-progress';
 import * as mime from 'react-native-mime-types';
 
 export default class SettingScreen extends React.Component {
@@ -170,7 +171,7 @@ export default class SettingScreen extends React.Component {
                             disabled={this.state.disabled}/>
 
                             { this.props.percent && this.props.percent !== 0 ?
-                           null:null
+                               <Progress.Bar progress={this.props.percent} width={null} /> : null
                             }
 
                         </View> 

@@ -15,15 +15,18 @@
         "axios": "^0.18.1",
         "expo": "^39.0.0",
         "expo-av": "~8.6.0",
-        "expo-cli": "^3.28.1",
+        "expo-cli": "^3.28.2",
         "expo-image-picker": "~9.1.0",
-        "rc-progress": "^3.1.1",
+        "expo-location": "~9.0.0",
+        "expo-permissions": "~9.3.0",
         "react": "16.13.1",
         "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
         "react-native-gesture-handler": "^1.7.0",
         "react-native-is-iphonex": "^1.0.1",
+        "react-native-maps": "~0.27.0",
         "react-native-mime-types": "^2.2.1",
         "react-native-multiple-select": "^0.5.0",
+        "react-native-progress": "^4.1.2",
         "react-native-reanimated": "^1.13.1",
         "react-native-render-html": "^4.1.2",
         "react-native-safe-area-context": "^3.1.4",
@@ -37,9 +40,6 @@
         "redux": "^4.0.1",
         "redux-logger": "^3.0.6",
         "redux-persist": "^5.10.0",
-        "redux-thunk": "^2.3.0",
-        "react-native-maps": "~0.25.0",
-        "expo-location": "~7.0.0",
-        "expo-permissions": "~7.0.0"
+        "redux-thunk": "^2.3.0"
     }
 }
