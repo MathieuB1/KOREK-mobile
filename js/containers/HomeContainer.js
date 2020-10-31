@@ -20,7 +20,7 @@ class HomeContainer extends React.Component {
     const { params = {} } = navigation.state
         return {
             headerTitle: 'korek',
-            headerRight: (
+            headerRight: () =>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex:1 }}>
                 <Image 
                     source={{uri: params.currentUserImage}}
@@ -33,7 +33,7 @@ class HomeContainer extends React.Component {
                 style={{ flex: 1 }}
                 />
             </View>
-            ),
+            ,
         };
     };
 

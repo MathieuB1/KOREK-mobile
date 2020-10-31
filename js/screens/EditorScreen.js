@@ -10,6 +10,8 @@ import * as mime from 'react-native-mime-types';
 
 import * as Progress from 'react-native-progress';
 
+import { Video } from 'expo-av';
+
 export default class EditorScreen extends Component {
 
     constructor(props) {
@@ -41,7 +43,7 @@ export default class EditorScreen extends Component {
         text: this.props.article.text,
         selected_tags: this.props.article.tags,
         imageTodelete: this.props.article.images,
-        
+        videoTodelete: this.props.article.videos,
       });
     }
 
@@ -61,6 +63,7 @@ export default class EditorScreen extends Component {
         text: this.props.article.text,
         selected_tags: this.props.article.tags,
         imageTodelete: this.props.article.images,
+        videoTodelete: this.props.article.videos,
       });
     }
 
@@ -124,6 +127,12 @@ export default class EditorScreen extends Component {
        });
       };
 
+    onDeleteVideo = ev => {
+        this.setState({ 
+          videos_path: this.state.videos_path.filter(el => el !== ev),
+          videos: this.state.videos.filter(el => el.uri !== ev),
+       });
+      };
 
   deleteMedia(key, type) {
       const item_to_remove = type; //images_url, videos_url, audios_url
@@ -140,9 +149,16 @@ export default class EditorScreen extends Component {
 
     onDeleteExistingImage = ev => {
         this.setState({ 
-          imageTodelete: this.state.imageTodelete.filter(el => el.image !== ev),
+          imageTodelete: this.state.imageTodelete.filter(el => el.image !== ev)
        });
-       this.deleteMedia(ev, "images_url");
+       this.deleteMedia(ev, "images_urls");
+      };
+
+    onDeleteExistingVideo = ev => {
+        this.setState({ 
+          videoTodelete: this.state.videoTodelete.filter(el => el.video !== ev)
+       });
+       this.deleteMedia(ev, "videos_urls");
       };
 
   render() {
@@ -223,6 +239,25 @@ export default class EditorScreen extends Component {
                           <View key={key} style={styles.imagegroup}>
                             <Image style={styles.imageThumbnail} source={{ uri: key }} style={{ width: 120, height: 120 }} />
                             <Button title="Remove image" onPress={() => this.onDeleteImage(key)}/>
+                          </View>) })
+                    }
+
+                    
+                </View>
+
+                <View style={styles.MainContainer}>
+                    {this.state.videoTodelete &&
+                        this.state.videoTodelete.map(key => { return (
+                          <View key={key.video} style={styles.imagegroup}>
+                            <Video  style={styles.imageThumbnail} source={{ uri: key.video }} style={{ width: 120, height: 120 }} />
+                            <Button title="Remove video" onPress={() => this.onDeleteExistingVideo(key.video)}/>
+                          </View>) })
+                    }
+                    {this.state.videos_path &&
+                        this.state.videos_path.map(key => { return (
+                          <View key={key} style={styles.imagegroup}>
+                            <Video  style={styles.imageThumbnail} source={{ uri: key }} style={{ width: 120, height: 120 }} />
+                            <Button title="Remove video" onPress={() => this.onDeleteVideo(key)}/>
                           </View>) })
                     }
                 </View>

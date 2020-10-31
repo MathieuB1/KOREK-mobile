@@ -12,7 +12,7 @@ class EditorContainer extends React.Component {
     const { params = {} } = navigation.state
         return {
             headerTitle: 'Create Article',
-            headerRight: (
+            headerRight: () =>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex:1 }}>
                 <Image 
                     source={{uri: params.currentUserImage}}
@@ -25,7 +25,7 @@ class EditorContainer extends React.Component {
                 style={{ flex: 1 }}
                 />
             </View>
-            ),
+            ,
         };
     };
 

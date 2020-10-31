@@ -13,7 +13,7 @@ class SettingContainer extends React.Component {
 
         return {
             title: 'My Settings',
-            headerRight: (
+            headerRight: () =>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex:1 }}>
                 <Button
                 onPress={ ()=> params.signOutAsync() }
@@ -22,7 +22,7 @@ class SettingContainer extends React.Component {
                 style={{ flex: 1 }}
                 />
             </View>
-            ),
+            ,
         };
     };
 

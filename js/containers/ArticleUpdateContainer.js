@@ -15,6 +15,7 @@ class ArticleUpdateContainer extends React.Component {
             update: (id, formData) => this.props.updateArticle(id, formData),
             onDeleteMedia: (id, formData) => this.props.onDeleteMedia(id, formData),
             getTags: () => this.props.getTagsList(),
+            commonInfo: this.props.commonInfo,
             percent: this.props.articlesInfo.percent,
             article: this.props.articlesInfo.articles.filter(el => el.id === this.props.navigation.getParam('articleId'))[0],
             errors: this.props.articlesInfo.errors,
@@ -33,6 +34,7 @@ class ArticleUpdateContainer extends React.Component {
 function mapStateToProps(state) {
     return {
         articlesInfo: state.articlesInfo,
+        commonInfo: state.commonInfo,
     };
 }
 
