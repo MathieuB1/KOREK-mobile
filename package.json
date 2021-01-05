@@ -12,7 +12,7 @@
         "@react-native-community/art": "^1.2.0",
         "@react-native-community/masked-view": "^0.1.10",
         "@react-navigation/native": "^5.7.6",
-        "axios": "^0.18.1",
+        "axios": "^0.21.1",
         "expo": "^39.0.0",
         "expo-av": "~8.6.0",
         "expo-cli": "^3.28.2",
